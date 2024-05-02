@@ -1,5 +1,6 @@
 package ejercicio2;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -33,14 +34,9 @@ class Ejercicio2 {
         WebElement submitButton = driver1.findElement(By.xpath("//p/input[@type='submit']"));
         submitButton.click();
         
-        WebElement errorNumero = driver1.findElement(By.id("errorNumero"));
-        boolean numero = errorNumero.isDisplayed();
-        assertFalse(numero);
-        
-        WebElement errorDirectivo = driver1.findElement(By.id("errorDirectivo"));
-        boolean textoDirectivo = errorDirectivo.isDisplayed();
-        assertFalse(textoDirectivo);
-        
+        WebElement valido = driver1.findElement(By.xpath("//h3"));
+        String correcto = valido.getText();
+        assertEquals("EMPLEADO AÑADIDO CORRECTAMENTE", correcto);
         
 	}
 	
